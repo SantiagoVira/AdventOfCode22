@@ -1,7 +1,4 @@
-import numpy as np, re
-
-# Part 1 - RFFFWBPNS
-# Part 2 - CQQBBJFCS
+import numpy as np, re, pandas as pd
 
 with open("./Day5/input.txt") as f:
   data = f.readlines()
@@ -22,6 +19,8 @@ for cmd in data[10:]:
   [count, from_, to] = [int(num) for num in re.findall("\d+", cmd)]
   from_ -= 1
   to -= 1
+  # Part 1 -> new_arr[to] = new_arr[from_][:count][::-1] + new_arr[to]
+  # Part 2:
   new_arr[to] = new_arr[from_][:count] + new_arr[to]
   new_arr[from_] = new_arr[from_][count:]
 
